@@ -1,10 +1,22 @@
 import React  from "react";
-import { Text, View , StyleSheet,ScrollView ,SafeAreaView } from 'react-native'
+import { Text, View , StyleSheet,ScrollView ,SafeAreaView } from 'react-native';
+import { Button } from 'react-native-paper';
+import Timeline from 'react-native-timeline-flatlist'
 
 
 export const OrdemTracking = () => {
+    
+    const [dataTrackingOrder,setDataTrackingOrder]= React.useState([
+        {time: '09:00', title: 'Pedido finalizado',circleSize:16, description:"Pedido finalizado aguarde a separação do estoque",lineWidth:8},
+        {title: 'Separação de estoque',circleSize:16, description:"Está quase tudo pronto para a saída do seu pedido!", lineColor:"#D1CACA",lineWidth:8},
+        {title: 'Em Transporte',circleSize:16, description:"Seu pedido saiu para a entrega",lineWidth:8,lineColor:"#D1CACA",circleColor:"#D1CACA"},
+        {title: 'Entrega realizada',circleSize:16,lineWidth:8,circleColor:"#D1CACA"}
+    ])
+
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView style={styles.container}
+            horizontal={true} 
+        >
             <ScrollView style={styles.scroll}>
                 <Text style={styles.mainText}>
                     Pedido 01232:
@@ -28,16 +40,14 @@ export const OrdemTracking = () => {
 
                 </View>
                 <View style={styles.statusOrder}>
-                    <Text style={styles.desfocedText}> Pedido finalizado</Text>
-                    <View style= {styles.selectStatus}>
-                        <Text style={styles.bar} ></Text>
-                        <Text style={styles.FocusText}> Pagamento confirmado</Text>
-                    </View>
-                    <Text style={styles.desfocedText} > Separação dos produtos</Text>
-                    <Text style={styles.desfocedText} > Em transporte</Text>
-                    <View style= {styles.selectStatus}>
-                        <Text style={styles.FocusText}> Entrega realizada</Text>
-                    </View>
+                <Timeline
+                    data={dataTrackingOrder}
+                />
+                <Button
+                    mode ="contained"
+                >
+                    Confirmar Entrega
+                </Button>
                 </View>
             </ScrollView>
         </SafeAreaView>
