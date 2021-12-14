@@ -1,6 +1,7 @@
 import React  from "react";
 import { Text, View ,StyleSheet, TouchableOpacity } from 'react-native';
 import { Avatar} from 'react-native-paper';
+import { FontAwesome } from '@expo/vector-icons';
 
 export const HomeBuyer = ({navigation}) => {
     return (
@@ -17,6 +18,11 @@ export const HomeBuyer = ({navigation}) => {
                     <Text>Marcos Antonio</Text>
                     <Text>Outros dados</Text>
                 </View>
+                <TouchableOpacity style={styles.iconCar}
+                    onPress={()=>{goToCar()}}
+                >
+                    <FontAwesome name="shopping-cart" size={26} color="black" />
+                </TouchableOpacity>
             </View>
             <View sytle ={styles.acountData}>
                 
@@ -56,6 +62,10 @@ export const HomeBuyer = ({navigation}) => {
     
     function searchEstablishments(){
         navigation.navigate("SearchProducts");
+    }
+    
+    function goToCar(){
+        navigation.navigate("ShoppingCart");
     }
 }
 
@@ -144,5 +154,9 @@ const styles = StyleSheet.create({
     orderText:{
         fontSize:14,
         marginLeft:27
+    },
+    iconCar:{
+        marginRight:20,
+        marginTop: -90
     }
 })

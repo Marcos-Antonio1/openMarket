@@ -1,8 +1,8 @@
 import React  from "react";
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
+import { Text, View, StyleSheet, TouchableOpacity , Image} from 'react-native'
 import { FontAwesome } from '@expo/vector-icons';
 import { TextInput} from 'react-native-paper';
-import { CategoryContainer } from "../../components/CategoryContainer";
+import { MyCarousel } from "../../components/MyCarrosel";
 
 export const SeachProducts = () => {
     return (
@@ -18,14 +18,7 @@ export const SeachProducts = () => {
             </TouchableOpacity>
             </View>
             <View style={styles.categoryArea}>
-                <View style={styles.firstLine}>
-                    <CategoryContainer name="Açouque"></CategoryContainer>
-                    <CategoryContainer name="HortFruits"></CategoryContainer>
-                </View>
-                <View style={styles.secondLine}>
-                    <CategoryContainer name="Água"></CategoryContainer>
-                    <CategoryContainer name="Padarias"></CategoryContainer>
-                </View>
+                <MyCarousel/>
             </View>
             <TouchableOpacity  style={styles.footArea}>
                 <Text style={styles.textFoot}>
@@ -59,6 +52,7 @@ const styles = StyleSheet.create({
         marginTop:10      
     },  
     categoryArea :{
+        marginTop:30,
         flexDirection:'column',
         alignItems:'center',
 
